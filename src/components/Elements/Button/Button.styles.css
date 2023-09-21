@@ -1,0 +1,48 @@
+.button{
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+}
+.logout-button{
+    width: 149px;
+    height: 35px;
+    font-size: 16px;
+    text-align: center;
+    color: #fff;
+}
+.blue-button{
+    background: #05386B;
+}
+.green-button{
+    background: #389764;
+}
+.light-green{
+    background: #007A391A;
+    color: #007A39;
+    height: 40px;
+    font-size: 18px;
+    font-weight: 500;
+}
+.login-signup{
+    background: #05386B;
+    color: #fff;
+    height: 40px;
+    font-size: 18px;
+    font-weight: 400;
+}
+.upload{
+    width: 275px;
+    background: #007A39;
+    color: #fff;
+    height: 40px;
+    font-size: 17px;
+    font-weight: 400;
+}
+.submit{
+    width: 275px;
+    background: #05386B;
+    color: #fff;
+    height: 40px;
+    font-size: 17px;
+    font-weight: 400;
+}

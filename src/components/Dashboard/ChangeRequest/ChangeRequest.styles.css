@@ -1,0 +1,112 @@
+.change-requests-card{
+    width: 95%;
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
+}
+.change-requests-titles, .change-requests-details{
+    display: flex;
+    /* background: red; */
+    border-bottom: 1px solid #8E8E8E4D;
+    height: 50px;
+    align-items: center;
+}
+.change-requests-titles{
+    font-size: 13px;
+    color: #8E8E8E;
+}
+.change-requests-details{
+    font-size: 15px;
+    font-weight: 400;
+}
+.roll-no, .request-type, .documents {
+   /* flex-grow: 0.8; */
+   width: 11%;
+}
+.name, .father-name, .current-data, .corrected-data, .remarks{
+    
+    /* flex-grow: 2; */
+    width: 19%;
+}
+.roll-no-details, .request-type-details, .documents-details {
+    /* flex-grow: 0.8; */
+    width: 11%;
+ }
+ .request-type{
+    text-align: center;
+    width: 13%;
+ }
+ .request-type-details{
+    width: 13%;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 700;
+    color: #99BA3D;
+ }
+ .name-details, .father-name-details, .current-data-details, .corrected-data-details, .remarks-details{
+     width: 19%;
+ }
+ .remarks, .remarks-details{
+    width: 23%;
+ }
+ .documents{
+   width: 12%;
+ }
+ .documents-details{
+   width: 12%;
+   display: flex;
+   gap: 10px;
+   align-items: center;
+ }
+ .download{
+   width: 20px;
+   height: 20px;
+   background: #389764;
+   border-radius: 50%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   cursor: pointer;
+ }
+ .download img{
+   height: 70%;
+ }
+.remarks-details{
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    position: relative;
+ }
+ .remarks-details-inner .remarks,  .remarks-details-inner .notAnnouned{
+    width: 131px;
+    height: 25px;
+    font-size: 10px;
+    font-weight: 500;
+    border-radius: 40px;
+    background: #FFBB33;
+    color: #fff;
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+ .remarks-details-inner .notAnnouned{
+   background: grey;
+ }
+ /* .remarks-details > div:nth-child(2){
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ }
+ .remarks-details > div:nth-child(2).active{
+   background: #0000001A;
+}
+
+ .remarks-details > div:nth-child(2) img{
+    height: 60%;
+    width: 100%;
+ } */

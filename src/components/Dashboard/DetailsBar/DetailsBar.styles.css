@@ -1,0 +1,31 @@
+.details-bar{
+    height: 55px;
+    display: flex;
+    align-items: center;
+}
+.details-bar-inner{
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    margin-left: 40px;
+    color: #fff;
+}
+.admin-details-bar{
+    background: #389764;
+}
+.student-details-bar{
+    background: #05386B;
+}
+.details-bar-details{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.details-bar-details span:first-child{
+   font-size: 14px;
+   margin-right: 5px;
+}
+.details-bar-details span:nth-child(2){
+    font-size: 19px;
+    font-weight: 500;
+ }

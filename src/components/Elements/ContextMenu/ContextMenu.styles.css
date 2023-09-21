@@ -1,0 +1,49 @@
+.context-menu-outer{
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    /* background: green; */
+}
+.context-menu-inner {
+    /* background: red; */
+    z-index: 99;
+    width: 210px;
+    overflow: hidden;
+    position: absolute;
+    top: 35px;
+}
+.context-menu-inner li{
+    padding: 10px;
+    list-style: none;
+    /* width: 170px; */
+    font-size: 13px;
+    font-weight: 400;
+    color: #666;
+    cursor: pointer;
+}
+.context-menu-inner li:hover{
+    background: #0000001A;
+}
+.context-menu-inner ul li:nth-child(1), .context-menu-inner ul li:nth-child(2){
+    border-bottom: 1px solid #8E8E8E4D;
+}
+ #student-context{
+    border-bottom: none;
+}
+
+.three-dots{
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+ }
+ .three-dots.active{
+   background: #0000001A;
+}

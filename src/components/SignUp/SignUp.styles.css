@@ -1,0 +1,37 @@
+.sign-up-container{
+    position: relative;
+    height: 100vh;
+}
+.sign-up-card{
+    width: 450px;
+    min-height: max-content;
+    padding: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.sign-up-card > div{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+h2{
+    text-align: center;
+}
+/* .sign-up-input{
+    border: 1px solid #8E8E8E4D;
+    padding: 10px 15px;
+    border-radius: 5px;
+} */
+.sign-up-button{
+    
+}
+label{
+    font-size: 13px;
+    font-weight: 500;
+}

@@ -1,0 +1,38 @@
+.topbar{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 40px;
+    height: 55px;
+    align-items: center;
+}
+
+
+.topbar-heading{
+    font-size: 20px;
+    font-weight: 500;
+}
+.heading-and-span{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.heading-and-span span{
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 2px;
+}
+.bell-and-logout{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.bell-and-logout >div:first-child{
+    height: 35px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.bell-and-logout img{
+    height: 65%;
+}
