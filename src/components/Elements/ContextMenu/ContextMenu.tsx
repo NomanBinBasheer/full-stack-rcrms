@@ -6,11 +6,11 @@ import {Context as ContextProps} from '../../../types'
 import "./ContextMenu.styles.css";
 
 
-const ContextMenu: React.FC<ContextProps> = ({onClick}) => {
+const ContextMenu: React.FC<ContextProps> = ({handleResubmit, handleAccept, handleReject, handleGiveRemarks}) => {
   const { isAdmin, addRequestActive, setAddRequestActive, requestsList, currentRequestId, setCurrentRequestId} = useAppContext();
   const [contextIsActive, setContextIsActive] = useState<boolean>(false)
 
-  console.log(isAdmin);
+  // console.log(isAdmin);
   const handleContextActive = () => {
     setContextIsActive(prev => !prev)
   }
@@ -31,13 +31,13 @@ const ContextMenu: React.FC<ContextProps> = ({onClick}) => {
         <Card className="context-menu-inner">
           {!isAdmin ? (
             <ul>
-              <li id="student-context" onClick={onClick}>Re-submit Request</li>
+              <li id="student-context" onClick={handleResubmit}>Re-submit Request</li>
             </ul>
           ) : (
             <ul>
-              <li>Accept Request</li>
-              <li>Reject Request</li>
-              <li>Give Remarks</li>
+              <li onClick={handleAccept}>Accept Request</li>
+              <li onClick={handleReject}>Reject Request</li>
+              <li onClick={handleGiveRemarks}>Give Remarks</li>
             </ul>
           )}
         </Card>

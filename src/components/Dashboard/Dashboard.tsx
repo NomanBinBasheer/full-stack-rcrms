@@ -21,7 +21,7 @@ const Dashboard = () => {
           Change Requests
         </h2>
         <ChangeRequest />
-        <AddRequest />
+        {!isAdmin && <AddRequest />}
 
     </div>
   )

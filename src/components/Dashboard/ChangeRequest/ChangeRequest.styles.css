@@ -93,6 +93,12 @@
  .remarks-details-inner .notAnnouned{
    background: grey;
  }
+ .remarks-details-inner .accepted-remarks{
+   background: #389764;
+ }
+ .remarks-details-inner .rejected-remarks{
+   background: #E4343C;
+ }
  /* .remarks-details > div:nth-child(2){
     width: 28px;
     height: 28px;

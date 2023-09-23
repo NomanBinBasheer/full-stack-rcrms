@@ -36,7 +36,7 @@ const AddRequest: React.FC = () => {
 
   // console.log(selectedButtonIndex);
   // console.log(addRequestActive);
-  // console.log(requestType)
+  console.log(currentRequestId)
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -110,7 +110,7 @@ const AddRequest: React.FC = () => {
       } else {
         const resResubmit = await fetch("http://localhost:5004/api/v1/requests", {
           method: "POST",
-          body: formDataForSubmit,
+          body: formDataForResubmit,
           headers: {
             Authorization: `Bearer ${loginCookie}`,
           },
@@ -124,8 +124,8 @@ const AddRequest: React.FC = () => {
           console.log(responseData);
         }
 
-        console.log(responseData);
-        console.log(responseData.status);
+        // console.log(responseData);
+        // console.log(responseData.status);
       }
     } catch (error) {
       console.log("Error:", error);

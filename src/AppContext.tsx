@@ -46,7 +46,7 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
   // const [loginCookie, setLoginCookie] = useState<string | undefined>("")
 
 
-   console.log(currentRequestId);
+  //  console.log(currentRequestId);
    
   // useEffect(() => {
   //   setLoginCookie(Cookies.get('loginToken'))
