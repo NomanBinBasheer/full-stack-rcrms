@@ -1,3 +1,7 @@
+.change-requests-outer{
+  position: relative;
+}
+
 .change-requests-card{
     width: 95%;
     margin: 0 auto;
@@ -16,7 +20,7 @@
     color: #8E8E8E;
 }
 .change-requests-details{
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 400;
 }
 .roll-no, .request-type, .documents {
@@ -26,28 +30,32 @@
 .name, .father-name, .current-data, .corrected-data, .remarks{
     
     /* flex-grow: 2; */
-    width: 19%;
+    width: 18%;
 }
 .roll-no-details, .request-type-details, .documents-details {
     /* flex-grow: 0.8; */
     width: 11%;
  }
+
+
+ .roll-no, .roll-no-details{
+   width: 7%;
+
+ }
  .request-type{
-    text-align: center;
-    width: 13%;
+    width: 12%;
  }
  .request-type-details{
-    width: 13%;
-    text-align: center;
+    width: 12%;
     font-size: 12px;
     font-weight: 700;
     color: #99BA3D;
  }
  .name-details, .father-name-details, .current-data-details, .corrected-data-details, .remarks-details{
-     width: 19%;
+     width: 18%;
  }
  .remarks, .remarks-details{
-    width: 23%;
+    width: 20%;
  }
  .documents{
    width: 12%;
@@ -99,6 +107,17 @@
  .remarks-details-inner .rejected-remarks{
    background: #E4343C;
  }
+ .remarks-details-inner .purple-remarks{
+  background: #E4349E;
+}
+.remarks-details-inner .blue-remarks{
+  background: #33B5E5;
+}
+.remarks-details-inner .orange-remarks{
+  background: #F48424;
+}
+
+
  /* .remarks-details > div:nth-child(2){
     width: 28px;
     height: 28px;

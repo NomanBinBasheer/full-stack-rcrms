@@ -64,6 +64,7 @@ const LoginPage = () => {
 
   const goToSignUp = () => {
     console.log("take me to Sign Up")
+    window.location.assign('/signup')
   }
 
   return (

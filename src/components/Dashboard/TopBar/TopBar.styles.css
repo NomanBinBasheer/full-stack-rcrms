@@ -26,6 +26,7 @@
     display: flex;
     align-items: center;
     gap: 20px;
+    position: relative;
 }
 .bell-and-logout >div:first-child{
     height: 35px;

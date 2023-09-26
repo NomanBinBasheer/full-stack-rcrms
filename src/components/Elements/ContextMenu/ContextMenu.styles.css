@@ -43,6 +43,7 @@
     align-items: center;
     justify-content: center;
     user-select: none;
+    padding-bottom: 3px;
  }
  .three-dots.active{
    background: #0000001A;

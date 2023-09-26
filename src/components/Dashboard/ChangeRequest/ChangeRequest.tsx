@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import Card from "../../Elements/Card/Card";
 import ContextMenu from "../../Elements/ContextMenu/ContextMenu";
+import RemarksModal from "../RemarksModal/RemarksModal";
 import threeDots from "../../../assets/three-dots.svg";
 import arrowDown from "../../../assets/arrow-down.svg";
 import { useAppContext } from "../../../AppContext";
@@ -19,6 +20,9 @@ const ChangeRequest = () => {
   } = useAppContext();
 
   const [remarks, setRemarks] = useState("");
+  const [remarksButton, setRemarksButton] = useState("");
+  const [curentRequestIndex, setCurentRequestIndex] = useState(0);
+  const [remarksModalOpen, setRemarksModalOpen] = useState(false);
   // console.log(remarks);
 
   // console.log(requestsList);
@@ -38,58 +42,77 @@ const ChangeRequest = () => {
 
   // console.log(currentRequestId);
 
-  const handleAccept = async (index: number) => {
+  const handleAccept = (index: number) => {
+    setRemarksButton("accept");
     requestsList && setCurrentRequestId(requestsList[index]._id);
     requestsList && setRemarks(requestsList[index].remarks);
     // setRemarks("Accepted")
     console.log(currentRequestId);
     console.log(remarks);
-
-    try {
-      const accept = await fetch(
-        `http://localhost:5004/api/v1/requests/${currentRequestId}/accept`,
-        {
-          method: "PATCH",
-          headers: {
-            Authorization: `Bearer ${loginCookie}`,
-            "Content-Type": "application/json",
-          },
-        }
-      );
-
-      const responseData = await accept.json();
-
-      console.log(responseData);
-    } catch (error) {}
   };
   const handleReject = async (index: number) => {
+    setRemarksButton("reject");
     requestsList && setCurrentRequestId(requestsList[index]._id);
     requestsList && setRemarks(requestsList[index].remarks);
     // setRemarks("Rejected")
     console.log(currentRequestId);
     console.log(remarks);
-
-    console.log(index);
-
-    try {
-      const accept = await fetch(
-        `http://localhost:5004/api/v1/requests/${currentRequestId}/reject`,
-        {
-          method: "PATCH",
-          headers: {
-            Authorization: `Bearer ${loginCookie}`,
-            "Content-Type": "application/json",
-          },
-        }
-      );
-
-      const responseData = await accept.json();
-
-      console.log(responseData);
-    } catch (error) {}
   };
 
-  console.log(requestsList);
+  useEffect(() => {
+    if (currentRequestId && remarksButton === "accept") {
+      (async () => {
+        try {
+          // API call to accept request
+          const acceptResponse = await fetch(
+            `http://localhost:5004/api/v1/requests/${currentRequestId}/accept`,
+            {
+              method: "PATCH",
+              headers: {
+                Authorization: `Bearer ${loginCookie}`,
+                "Content-Type": "application/json",
+              },
+            }
+          );
+
+          const acceptData = await acceptResponse.json();
+
+          console.log("Accept Response:", acceptData);
+        } catch (error) {
+          // Handle errors here
+          console.log(error);
+          
+        }
+      });
+    }
+  }, [remarksButton]);
+
+  useEffect(() => {
+    if (currentRequestId && remarksButton === "reject") {
+      (async () => {
+        try {
+          const rejectResponse = await fetch(
+            `http://localhost:5004/api/v1/requests/${currentRequestId}/reject`,
+            {
+              method: "PATCH",
+              headers: {
+                Authorization: `Bearer ${loginCookie}`,
+                "Content-Type": "application/json",
+              },
+            }
+          );
+
+          const rejectData = await rejectResponse.json();
+
+          console.log("Reject Response:", rejectData);
+        } catch (error) {
+          // Handle errors here
+        }
+      })();
+    }
+  }, [remarksButton]);
+
+  // console.log(requestsList);
 
   // const handleReject = async (index: number) => {
   //   setRemarks("Rejected")
@@ -113,9 +136,11 @@ const ChangeRequest = () => {
 
   //   // }
   // }
-  const handleGiveRemarks = async (index: number) => {
-    setRemarks("Accepted");
-    console.log("Accepted");
+  const handleRemarksModalOpen = async (index: number) => {
+    setCurentRequestIndex(index);
+    setRemarksModalOpen(true)
+    console.log("Give Remarks");
+    console.log(curentRequestIndex);
 
     // try {
     //   const accept = await fetch(`http://localhost:5004/api/v1/requests/${currentRequestId}/accept`, {
@@ -137,8 +162,8 @@ const ChangeRequest = () => {
     // }
   };
 
-  const currentUserName = requestsList && requestsList.name;
-  const currentUserFatherName = userData && userData.fatherName;
+  // const currentUserName = requestsList && requestsList.name;
+  // const currentUserFatherName = userData && userData.fatherName;
 
   // useEffect(()=> {
   //   handleAccept()
@@ -148,7 +173,7 @@ const ChangeRequest = () => {
   console.log(remarks);
 
   return (
-    <section>
+    <section className="change-requests-outer">
       <Card className="change-requests-card">
         <div className="change-requests-inner">
           <div className="change-requests-titles">
@@ -217,6 +242,12 @@ const ChangeRequest = () => {
                           ? "accepted-remarks"
                           : ele.remarks === "Rejected"
                           ? "rejected-remarks"
+                          : ele.remarks === "Missing Challan"
+                          ? "purple-remarks"
+                          : ele.remarks === "Visit Office"
+                          ? "blue-remarks"
+                          : ele.remarks === "Incomplete Docs"
+                          ? "orange-remarks"
                           : ""
                       }`}
                     >
@@ -231,13 +262,31 @@ const ChangeRequest = () => {
                   handleResubmit={() => handleResubmit(ind)}
                   handleAccept={() => handleAccept(ind)}
                   handleReject={() => handleReject(ind)}
-                  handleGiveRemarks={() => handleGiveRemarks(ind)}
+                  handleGiveRemarks={() => handleRemarksModalOpen(ind)}
                 />
               </div>
             </div>
           ))}
         </div>
       </Card>
+      {remarksModalOpen && (
+        <RemarksModal
+          requestType={
+            requestsList && requestsList[curentRequestIndex].requestType
+          }
+          currentData={
+            requestsList && requestsList[curentRequestIndex].currentData
+          }
+          correctedData={
+            requestsList && requestsList[curentRequestIndex].correctedData
+          }
+          curentRequestIndex ={curentRequestIndex}
+          remarksModalOpen ={remarksModalOpen}
+          setRemarksModalOpen={setRemarksModalOpen}
+          remarks={remarks}
+          setRemarks={setRemarks}
+        />
+      )}
     </section>
   );
 };

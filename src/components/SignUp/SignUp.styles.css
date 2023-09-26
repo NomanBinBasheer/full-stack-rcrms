@@ -31,6 +31,9 @@ h2{
 .sign-up-button{
     
 }
+.sign-up-card .sign-up-.name, .sign-up-father-name{
+    width: 100%;
+}
 label{
     font-size: 13px;
     font-weight: 500;

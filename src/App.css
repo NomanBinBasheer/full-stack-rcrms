@@ -6,6 +6,11 @@ body, *{
   padding: 0;
   box-sizing: border-box;
 }
+
 body{
   font-family: 'Poppins', sans-serif;
-} 
+  padding: 0 0 120px 0;
+}
+ul{
+  list-style: none;
+}

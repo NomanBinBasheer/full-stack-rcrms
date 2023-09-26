@@ -62,7 +62,6 @@ function App() {
 
   return (
     <>
-      {/* <SignUp /> */}
      {loginCookie ? <Dashboard /> : <LoginPage />} 
     </>
   );

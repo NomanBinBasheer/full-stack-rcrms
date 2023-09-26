@@ -1,0 +1,11 @@
+.notifications-outer-container{
+    position: absolute;
+    top: 40px;
+    right:85%;
+    z-index: 100;
+}
+
+.notifications-card{
+    width: 400px;
+    height: 200px;
+}

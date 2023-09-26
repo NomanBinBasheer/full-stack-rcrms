@@ -13,7 +13,7 @@ const initialFormValues = {
 };
 
 const AddRequest: React.FC = () => {
-  const { requestsList, addRequestActive, setAddRequestActive, currentRequestId } = useAppContext();
+  const { requestsList, addRequestActive, setAddRequestActive, currentRequestId, setCurrentRequestId } = useAppContext();
 
   const loginCookie = Cookies.get("loginToken");
 
@@ -51,6 +51,14 @@ const AddRequest: React.FC = () => {
     });
   };
 
+  console.log(formData);
+  console.log(requestType);
+
+  console.log(currentRequestId);
+  
+  
+  
+
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
       setFile(e.target.files[0]);
@@ -85,12 +93,18 @@ const AddRequest: React.FC = () => {
       formDataForSubmit.append("requestType", requestType);
       formDataForSubmit.append("correctedData", formData.correctedData);
       formDataForSubmit.append("documents", file as File);
-      
 
-      if (requestType === "") {
-        const resSubmit = await fetch(`http://localhost:5004/api/v1/requests/${currentRequestId}`, {
-          method: "PATCH",
-          body: formDataForResubmit,
+      console.log(formDataForSubmit);
+      console.log(currentRequestId);
+
+      console.log(requestType);
+       
+
+      if (requestType !== "") {
+        
+        const resSubmit = await fetch(`http://localhost:5004/api/v1/requests`, {
+          method: "POST",
+          body: formDataForSubmit,
           headers: {
             Authorization: `Bearer ${loginCookie}`,
 
@@ -108,8 +122,8 @@ const AddRequest: React.FC = () => {
         console.log(responseData);
         console.log(responseData.status);
       } else {
-        const resResubmit = await fetch("http://localhost:5004/api/v1/requests", {
-          method: "POST",
+        const resResubmit = await fetch(`http://localhost:5004/api/v1/requests/${currentRequestId}`, {
+          method: "PATCH",
           body: formDataForResubmit,
           headers: {
             Authorization: `Bearer ${loginCookie}`,

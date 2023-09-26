@@ -25,6 +25,9 @@ interface AppContextProps {
   setContextIsActive: React.Dispatch<React.SetStateAction<boolean>>;
   requestRemarks: string;
   setRequestRemarks: React.Dispatch<React.SetStateAction<string>>;
+  notificationsModalOpen: boolean;
+  setNotificationsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+
 
   // Add other shared states here
 }
@@ -43,6 +46,7 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
   const [currentRequestId, setCurrentRequestId] = useState<string>("")
   const [contextIsActive, setContextIsActive] = useState<boolean>(false)
   const [requestRemarks, setRequestRemarks] = useState<string>("")
+  const [notificationsModalOpen, setNotificationsModalOpen] = useState<boolean>(false)
   // const [loginCookie, setLoginCookie] = useState<string | undefined>("")
 
 
@@ -130,8 +134,9 @@ useEffect(() => {
     contextIsActive,
     setContextIsActive,
     requestRemarks,
-    setRequestRemarks
-    // Add other shared states here
+    setRequestRemarks,
+    notificationsModalOpen,
+    setNotificationsModalOpen
   };
 
   return (

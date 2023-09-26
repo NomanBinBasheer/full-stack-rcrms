@@ -52,6 +52,10 @@ const SignUp: React.FC = () => {
 
     const responseData = await res.json()
 
+    if (responseData.status === 'success'){
+      window.location.assign('/login')
+     }
+
     console.log(responseData);
     console.log(responseData.status);
       
@@ -72,7 +76,7 @@ const SignUp: React.FC = () => {
       <Card className="sign-up-card">
         <>
           <h2>RCRMS</h2>
-          <div className="name">
+          <div className="sign-up-name">
             <label htmlFor="name">Name</label>
             <Input
               type="text"
@@ -84,7 +88,7 @@ const SignUp: React.FC = () => {
               name="name"
             />
           </div>
-          <div className="father-name">
+          <div className=".sign-up-father-name">
             <label htmlFor="father-name">Father Name</label>
             <Input
               type="text"
