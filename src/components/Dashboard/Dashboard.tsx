@@ -8,12 +8,13 @@ import './Dashboard.styles.css'
 
 const Dashboard = () => {
 
-  const { isAdmin } = useAppContext();
+  const { isAdmin, isLoading } = useAppContext();
 
   // console.log(isAdmin);
   
 
   return (
+    isLoading ? <h1>Hello</h1> : 
     <div>
         <TopBar />
         <DetailsBar/>

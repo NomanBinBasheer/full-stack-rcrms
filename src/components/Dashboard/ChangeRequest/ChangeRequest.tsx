@@ -170,7 +170,6 @@ const ChangeRequest = () => {
 
   // }, [])
 
-  console.log(remarks);
 
   return (
     <section className="change-requests-outer">
@@ -203,7 +202,7 @@ const ChangeRequest = () => {
             </div>
           </div>
           {requestsList?.map((ele, ind) => (
-            <div className="change-requests-details">
+            <div className="change-requests-details" key={ind}>
               <div className="roll-no-details">
                 <span>57043</span>
               </div>
