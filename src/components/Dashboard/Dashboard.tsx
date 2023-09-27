@@ -1,31 +1,25 @@
-import React from 'react'
-import TopBar from './TopBar/TopBar'
-import DetailsBar from './DetailsBar/DetailsBar'
-import ChangeRequest from './ChangeRequest/ChangeRequest'
-import AddRequest from './AddRequest/AddRequest'
-import { useAppContext } from '../../AppContext'
-import './Dashboard.styles.css'
+import React from "react";
+import TopBar from "./TopBar/TopBar";
+import DetailsBar from "./DetailsBar/DetailsBar";
+import ChangeRequest from "./ChangeRequest/ChangeRequest";
+import AddRequest from "./AddRequest/AddRequest";
+import { useAppContext } from "../../AppContext";
+import "./Dashboard.styles.css";
 
 const Dashboard = () => {
-
-  const { isAdmin, isLoading } = useAppContext();
+  const { isAdmin } = useAppContext();
 
   // console.log(isAdmin);
-  
 
   return (
-    isLoading ? <h1>Hello</h1> : 
     <div>
-        <TopBar />
-        <DetailsBar/>
-        <h2 className="change-requests-heading">
-          Change Requests
-        </h2>
-        <ChangeRequest />
-        {!isAdmin && <AddRequest />}
-
+      <TopBar />
+      <DetailsBar />
+      <h2 className="change-requests-heading">Change Requests</h2>
+      <ChangeRequest />
+      {!isAdmin && <AddRequest />}
     </div>
-  )
-}
+  );
+};
 
-export default Dashboard
+export default Dashboard;

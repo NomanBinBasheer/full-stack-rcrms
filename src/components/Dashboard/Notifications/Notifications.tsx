@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Card from "../../Elements/Card/Card";
 import { Notification } from "../../../types";
 import { useAppContext } from "../../../AppContext";
@@ -10,27 +10,8 @@ interface Props {
 }
 
 const Notifications: React.FC<Props> = ({ notifications }) => {
-  const { isAdmin, isLoading } = useAppContext();
+  const { isAdmin } = useAppContext();
 
-  // useEffect(() => {
-  //   async () => {
-  //     try {
-  //       const res = await fetch("http://localhost:5004/api/v1/notifications ", {
-  //         method: "GET",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //         },
-  //       });
-  //       const responseData = await res.json();
-
-  //       console.log(responseData);
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   };
-  // }, []);
-
-  console.log(notifications);
 
   return (
     <div className="notifications-outer-container">
